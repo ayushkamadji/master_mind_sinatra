@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mastermind</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src=js/game_script.js></script>
+</head>
+<body>
+  <h1>MASTERMIND</h1>
+
+  <div id="board-wrapper">
+    <div id="board">
+      <% board.rows.each.with_index.reverse_each do |row, index|%>
+        <div class="row" id="row_<%= index + 1 %>">
+            <div class="slot-wrapper">
+              <% row.decoding.each_with_index do |node, index| %>
+                <div class="<%= node.code.to_s %> slot" id="slot_<%= index %>">
+                </div>
+              <% end %>
+            </div>
+            <div class="indicator-wrapper">
+              <% row.feedback.each do |node| %>
+                <div class="<%= node.code.to_s %> indicator"></div>
+              <% end %>
+            </div>
+          </div> 
+      <% end %>
+    </div>
+  </div>
+
+  <div id="pegs">
+    <% row_index = board.rows.find_index { |row| !row.is_locked? } %>
+    <div class="blue peg" onclick="acceptInput('blue', <%= row_index %>)"></div>
+    <div class="green peg" onclick="acceptInput('green', <%= row_index %>)"></div>
+    <div class="cyan peg" onclick="acceptInput('cyan', <%= row_index %>)"></div>
+    <div class="yellow peg" onclick="acceptInput('yellow', <%= row_index %>)"></div>
+    <div class="red peg" onclick="acceptInput('red', <%= row_index %>)"></div>
+    <div class="purple peg" onclick="acceptInput('purple', <%= row_index %>)"></div>
+
+    <form method="post" id="guess_form">
+      <input type="hidden" name="move_0" value="">
+      <input type="hidden" name="move_1" value="">
+      <input type="hidden" name="move_2" value="">
+      <input type="hidden" name="move_3" value="">
+      <input id="guess-button" type="submit" value="guess">
+    </form>
+  </div>
+  <p><a href="/newgame">New Game</a></p>
+  <p><a href="http://www.github.com/ayushkamadji/master_mind_sinatra">Instructions</p>
+</body>
+</html>

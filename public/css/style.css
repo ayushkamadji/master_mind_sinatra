@@ -1,0 +1,107 @@
+body {
+  background: #d5c6b0;
+  position: center;
+}
+
+h1, h2, p {
+  text-align: center;
+}
+
+#board-wrapper {
+  padding: 0;
+}
+
+#board {
+  width: 270px;
+  border: 3px solid black;
+  border-radius: 20px;
+  background: #4c3f37;
+  margin: 0 auto;
+}
+
+#row {
+  display: block;
+}
+
+.slot-wrapper {
+  display: inline-block;
+  border-right: 2px solid black;
+}
+
+.slot {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+.indicator-wrapper {
+  display: inline-block;
+}
+
+.indicator {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+}
+
+#pegs {
+  display: inline-block;
+  padding: 0 40%;
+  text-align: center;
+}
+
+.peg {
+  float: left;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+#guess-button {
+  float: left;
+  padding: 1px;
+}
+
+.green {
+  background: #01545a;
+}
+
+.red {
+  background: #ed0345;
+}
+
+.blue {
+  background: #1a1334;
+}
+
+.yellow {
+  background: #aad962;
+}
+
+.purple {
+  background: #710162;
+}
+
+.cyan {
+  background: #03c383;
+}
+
+.blank {
+  background: black;
+}
+
+.grey {
+  background: grey;
+}
+
+.white {
+  background: white;
+}

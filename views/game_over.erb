@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mastermind</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>GAME OVER</h1>
+  <% if game.has_winner? %>
+    <h2> You won! </h2>
+  <% else %>
+    <h2> Try again?</h2>
+  <% end %>
+
+  <div id="board-wrapper">
+    <div id="board">
+      <% game.board.rows.each.with_index.reverse_each do |row, index|%>
+        <div class="row" id="row_<%= index + 1 %>">
+            <div class="slot-wrapper">
+              <% row.decoding.each_with_index do |node, index| %>
+                <div class="<%= node.code.to_s %> slot" id="slot_<%= index %>">
+                </div>
+              <% end %>
+            </div>
+            <div class="indicator-wrapper">
+              <% row.feedback.each do |node| %>
+                <div class="<%= node.code.to_s %> indicator"></div>
+              <% end %>
+            </div>
+          </div> 
+      <% end %>
+    </div>
+  </div>
+  <p> The secret code was </p>
+  <div id="pegs">
+    <% game.code.each do |code| %>
+      <div class="<%= code.to_s %> peg"></div>
+    <% end %>
+  </div>
+
+  <p><a href="/newgame">New Game</a></p>
+</body>
+</html>
